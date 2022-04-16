@@ -17,7 +17,7 @@ const Works = () => {
         <SimpleGrid columns={[1, 1, 2]} gap={6}>
           <Section>
             <WorkGridItem
-              id="JFrame App"
+              id="jframeapp"
               title="JFrame App for managing cow sales"
               thumbnail={thumbJFrameApp}
             >
@@ -27,7 +27,7 @@ const Works = () => {
 
           <Section>
             <WorkGridItem
-              id="Simple App"
+              id="simpleappcollection"
               title="A Collection of Simple App"
               thumbnail={thumbSimpleApp}
             >

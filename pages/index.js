@@ -7,12 +7,18 @@ import {
   Link,
   Image,
   useColorModeValue,
+  ListItem,
+  chakra,
+  SimpleGrid,
+  List,
 } from '@chakra-ui/react'
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BioSection, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
+import { GridItem } from '../components/grid-item'
+import { IoLogoGithub, IoLogoDiscord, IoLogoLinkedin } from 'react-icons/io5'
 
 const Page = () => {
   return (
@@ -96,9 +102,40 @@ const Page = () => {
           </Heading>
           <Paragraph>Exploring tech related stuff, reading manga.</Paragraph>
         </Section>
+
+        <Section delay={0.4}>
+          <Heading as="h3" variant="section-title">
+            Social Media
+          </Heading>
+          <List>
+            <ListItem>
+              <Link href="https://github.com/tridims" target="_blank">
+                <Button
+                  variant="ghost"
+                  colorScheme="teal"
+                  leftIcon={<IoLogoGithub />}
+                >
+                  @Dimas Tri
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="#" target="_blank">
+                <Button
+                  variant="ghost"
+                  colorScheme="teal"
+                  leftIcon={<IoLogoLinkedin />}
+                >
+                  Dimas Tri Mustakim
+                </Button>
+              </Link>
+            </ListItem>
+          </List>
+        </Section>
       </Container>
     </Layout>
   )
 }
 
 export default Page
+export { getServerSideProps } from '../components/chakra'
