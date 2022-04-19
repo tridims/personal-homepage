@@ -8,8 +8,8 @@ import {
   Image,
   useColorModeValue,
   ListItem,
-  chakra,
-  SimpleGrid,
+  // chakra,
+  // SimpleGrid,
   List,
 } from '@chakra-ui/react'
 import Section from '../components/section'
@@ -17,8 +17,9 @@ import Paragraph from '../components/paragraph'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BioSection, BioYear } from '../components/bio'
 import Layout from '../components/layouts/article'
-import { GridItem } from '../components/grid-item'
-import { IoLogoGithub, IoLogoDiscord, IoLogoLinkedin } from 'react-icons/io5'
+// import { GridItem } from '../components/grid-item'
+// import { IoLogoGithub, IoLogoDiscord, IoLogoLinkedin } from 'react-icons/io5'
+import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5'
 
 const Page = () => {
   return (
@@ -69,12 +70,12 @@ const Page = () => {
             Machine Learning, and Security. Not yet to decide which one i would
             really want, but i belive that learning all of those will be helpful
             in building good stuff in the future. Pls chekout my website in{' '}
-            <NextLink href="https://www.dimastri.online">
+            <NextLink href="https://www.dimastri.online" passHref>
               <Link>here.</Link>
             </NextLink>
           </Paragraph>
           <Box align="center" my={4}>
-            <NextLink href="/works">
+            <NextLink href="/works" passHref>
               <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
                 My Portofolio
               </Button>
