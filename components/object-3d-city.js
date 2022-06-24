@@ -150,7 +150,7 @@ const Object3d = () => {
         renderer.dispose()
       }
     }
-  }, [renderer, scene, target, clock])
+  }, [renderer, scene, target, clock, initialCameraPosition])
 
   useEffect(() => {
     window.addEventListener('resize', handleWindowResize, false)
