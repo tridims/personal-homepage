@@ -16,13 +16,7 @@ const Object3d = () => {
   const [renderer, setRenderer] = useState()
   const [_camera, setCamera] = useState()
   const [target] = useState(new THREE.Vector3(0, 0.5, 0))
-  const [initialCameraPosition] = useState(
-    new THREE.Vector3(
-      20 * Math.sin(0.2 * Math.PI),
-      10,
-      20 * Math.cos(0.2 * Math.PI)
-    )
-  )
+  const [initialCameraPosition] = useState(new THREE.Vector3(5, 4, 10))
 
   const [scene] = useState(new THREE.Scene())
   const [clock] = useState(new THREE.Clock())
@@ -73,10 +67,10 @@ const Object3d = () => {
       setCamera(camera)
 
       // lighting
-      const ambientLight = new THREE.AmbientLight(0xcccccc, 1)
+      const ambientLight = new THREE.AmbientLight(0xcccccc, 2)
       scene.add(ambientLight)
 
-      const directionalLight = new THREE.DirectionalLight(0xcccccc, 1)
+      const directionalLight = new THREE.DirectionalLight(0xcccccc, 3)
       directionalLight.position.set(0.5, 0.5, 0.5)
       scene.add(directionalLight)
 
@@ -125,8 +119,26 @@ const Object3d = () => {
       )
 
       let req = null
+      let frame = 0
       const animate = () => {
         req = requestAnimationFrame(animate)
+
+        frame = frame <= 100 ? frame + 1 : frame
+
+        if (frame <= 100) {
+          const p = initialCameraPosition
+          const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 20
+
+          camera.position.y = initialCameraPosition.y
+          camera.position.x =
+            p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed)
+          camera.position.z =
+            p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed)
+          camera.lookAt(target)
+        } else {
+          controls.update()
+        }
+
         const delta = clock.getDelta()
         mixer.update(delta)
         controls.update()
