@@ -53,7 +53,7 @@ const Object3d = () => {
       container.appendChild(renderer.domElement)
       setRenderer(renderer)
 
-      // setting up pemremgenerator
+      // setting up pmremgenerator
       const pmremGenerator = new THREE.PMREMGenerator(renderer)
       // scene.background = new THREE.Color(0xbfe3dd)
       scene.environment = pmremGenerator.fromScene(
@@ -96,7 +96,7 @@ const Object3d = () => {
         function (gltf) {
           const model = gltf.scene
           model.position.set(1, 1, 0)
-          model.scale.set(0.007, 0.007, 0.007)
+          model.scale.set(0.005, 0.005, 0.005)
           scene.add(model)
 
           model.traverse(function (child) {
